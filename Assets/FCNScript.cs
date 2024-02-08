@@ -138,28 +138,37 @@ public class FCNScript : MonoBehaviour
         _ignoredModules = GetComponent<KMBossModule>().GetIgnoredModules("Forget Cyan Not", new string[] { "Forget Cyan Not" });
         int stageCount = GetComponent<KMBombInfo>().GetSolvableModuleNames().Count(m => !_ignoredModules.Contains(m));
 #if UNITY_EDITOR
-        stageCount = 3;
+        stageCount = 5;
 #endif
 
         if (stageCount == 0)
         {
             Log("No other non-ignored modules were found. Auto-solving.");
             QueueCoroutine(Solve(true));
+            GetComponent<KMBombModule>().OnActivate += () => Activate(true);
             return;
         }
 
-        _stages = Enumerable.Repeat(0, stageCount).Select(_ => new Vector2Int(Random.Range(0, 10), Random.Range(0, 10))).ToList();
+        Func<Vector2Int> stage = () =>
+        {
+            var s = Random.Range(0, 10);
+            var a = Random.Range(0, s);
+            var b = s - a;
+            return new Vector2Int(a, b);
+        };
+
+        _stages = Enumerable.Repeat(0, stageCount).Select(_ => stage()).ToList();
 
         Log("Generated {0} stages:", stageCount);
         for (int i = 0; i < _stages.Count; i++)
         {
             Vector2Int s = _stages[i];
-            Log("Stage {0}: {1} and {2} (submit {3})", i, s.x, s.y, (s.x + s.y) % 10);
+            Log("Stage {0}: {1} and {2} (submit {3})", i, s.x, s.y, s.x + s.y);
         }
 
-        Log("Combined submission: {0}", _stages.Select(s => (s.x + s.y) % 10).Join(""));
+        Log("Combined submission: {0}", _stages.Select(s => s.x + s.y).Join(""));
 
-        GetComponent<KMBombModule>().OnActivate += Activate;
+        GetComponent<KMBombModule>().OnActivate += () => Activate();
     }
 
     private float _screenPosition;
@@ -214,11 +223,12 @@ public class FCNScript : MonoBehaviour
         }
     }
 
-    private void Activate()
+    private void Activate(bool auto = false)
     {
         _activated = true;
         GetComponent<KMAudio>().PlaySoundAtTransform("Startup", transform);
-        ShowNextStage();
+        if (!auto)
+            ShowNextStage();
     }
 
     private bool Press(int ix)
@@ -239,10 +249,12 @@ public class FCNScript : MonoBehaviour
 
         var s = _stages[_stagesInput];
 
-        if (ix == (s.x + s.y) % 10)
+
+        if (ix == s.x + s.y)
         {
             _stagesInput++;
             Log("Correct input {0} for stage {1}.", ix, _stagesInput);
+            GetComponent<KMAudio>().PlaySoundAtTransform("Press" + Random.Range(0, 4), transform);
             if (_stagesInput == _stages.Count)
             {
                 _canInput = false;
@@ -253,7 +265,7 @@ public class FCNScript : MonoBehaviour
         }
         else
         {
-            Log("Incorrect input {0} for stage {2}! I was expecting {1}.", ix, (s.x + s.y) % 10, _stagesInput + 1);
+            Log("Incorrect input {0} for stage {2}! I was expecting {1}.", ix, s.x + s.y, _stagesInput + 1);
             GetComponent<KMBombModule>().HandleStrike();
             _canInput = false;
             QueueCoroutine(Recover(s.x, s.y));
