@@ -350,7 +350,7 @@ public class FCNScript : MonoBehaviour
 
     private void Log(object message, params object[] args)
     {
-        Debug.LogFormat("[Forget Cyan Not #" + _moduleId + "] " + message, args);
+        Debug.LogFormat("[Not Forget Cyan't Non't #" + _moduleId + "] " + message, args);
     }
 
 #pragma warning disable 414

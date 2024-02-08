@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Name: ModConfig
   m_EditorClassIdentifier: 
   id: fcn
-  title: Forget Cyan Not [Recreation]
+  title: Not Forget Cyan't Non't
   author: BakersDozenBagels
   description: "I like this module! It's a necessary beginner-friendly boss, and also
-    a good easy boss. I did give it a major tune-up, though.\n\nModule ID: forgetCyanNot\n\nAdd
+    a good easy boss. I did give it a major tune-up, though.\n\nModule ID: notForgetCyantNont\n\nAdd
     the module to BMM Here: https://steamcommunity.com/sharedfiles/filedetails/?id=3049483506\r\n\r\nFind
-    the manual at https://gdane.net/manual/Forget%20Cyan%20Not\n\r\nSource: https://github.com/BakersDozenBagels/KTANEForgetCyanNot"
-  version: 1.1
+    the manual at https://gdane.net/manual/Not%20Forget%20Cyant%20Nont\n\r\nSource:
+    https://github.com/BakersDozenBagels/KTANEForgetCyanNot"
+  version: 1.2
   outputFolder: build
   previewImage: {fileID: 2800000, guid: c484e750cc5397f46aff553326fb22e3, type: 3}
