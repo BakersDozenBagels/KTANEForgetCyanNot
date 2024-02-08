@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
+  m_Name: ModConfig
+  m_EditorClassIdentifier: 
+  id: fcn
+  title: Forget Cyan Not [Recreation]
+  author: BakersDozenBagels
+  description: "I like this module! It's a necessary beginner-friendly boss, and also
+    a good easy boss. I did give it a major tune-up, though.\n\nModule ID: forgetCyanNot\n\nAdd
+    the module to BMM Here: https://steamcommunity.com/sharedfiles/filedetails/?id=3049483506\r\n\r\nFind
+    the manual at https://gdane.net/manual/Forget%20Cyan%20Not\n\r\nSource: https://github.com/BakersDozenBagels/KTANEForgetCyanNot"
+  version: 1.0
+  outputFolder: build
+  previewImage: {fileID: 2800000, guid: c484e750cc5397f46aff553326fb22e3, type: 3}
