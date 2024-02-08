@@ -19,6 +19,6 @@ MonoBehaviour:
     the module to BMM Here: https://steamcommunity.com/sharedfiles/filedetails/?id=3049483506\r\n\r\nFind
     the manual at https://gdane.net/manual/Not%20Forget%20Cyant%20Nont\n\r\nSource:
     https://github.com/BakersDozenBagels/KTANEForgetCyanNot"
-  version: 1.2
+  version: 1.3
   outputFolder: build
   previewImage: {fileID: 2800000, guid: c484e750cc5397f46aff553326fb22e3, type: 3}

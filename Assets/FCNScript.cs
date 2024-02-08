@@ -135,7 +135,7 @@ public class FCNScript : MonoBehaviour
         Screen.material.SetColor("_ColorA", _prevColor = Random.ColorHSV(155f / 360f, 195f / 360f, 0.25f, 0.5f, 0.15f, 0.25f));
         Screen.material.SetColor("_ColorB", Random.ColorHSV(155f / 360f, 195f / 360f, 0.25f, 0.5f, 0.15f, 0.25f));
 
-        _ignoredModules = GetComponent<KMBossModule>().GetIgnoredModules("Forget Cyan Not", new string[] { "Forget Cyan Not" });
+        _ignoredModules = GetComponent<KMBossModule>().GetIgnoredModules("Not Forget Cyan't Non't", new string[] { "Not Forget Cyan't Non't" });
         int stageCount = GetComponent<KMBombInfo>().GetSolvableModuleNames().Count(m => !_ignoredModules.Contains(m));
 #if UNITY_EDITOR
         stageCount = 5;
